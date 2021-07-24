@@ -1,0 +1,77 @@
+//@Author: Akshay Yadav 
+
+#include <bits/stdc++.h>
+#define loop(n) for(int i=0;i<n;i++)
+#define f float
+using namespace std;
+
+//for union
+void Union(f a[], f b[], int m){
+   vector<f> max(m); vector<f> min(m);
+    
+    loop(m){
+        if(a[i] > b[i])
+            max[i] = a[i];
+        else
+            max[i] = b[i];
+    }
+    cout << "Union of Fuzzy sets A & B is=" << "\n";
+    
+    loop(m)
+        printf("%f\t", max[i]);
+    
+}
+
+//for intersection
+void Intersection(f a[], f b[], int m){
+   vector<f> max(m); vector<f> min(m);
+    
+    loop(m){
+        if(a[i] < b[i])
+            min[i] = a[i];
+        else
+            min[i] = b[i];
+}
+    cout << "Intersection of Fuzzy sets A & B is=" << "\n";
+    
+    loop(m)
+        printf("%f\t", min[i]);
+    
+}
+
+//for compliment
+void Compliment(f a[], f b[], int m){
+    cout << "Compliment of Fuzzy sets A is=" << "\n";
+    loop(m)
+        printf("%f\t", 1-a[i]);
+        
+        cout <<"\n \n";
+        
+    cout << "Compliment of Fuzzy sets B is=" << "\n";
+    loop(m)
+        printf("%f\t", 1-b[i]);
+}
+
+
+signed main()
+{
+  int n;
+  cin >> n;
+  f a[n], b[n];
+  loop(n){
+      cin >> a[i];
+  }
+  
+  loop(n){
+      cin >> b[i];
+  }
+  
+  Union(a,b,n);
+  cout << "\n \n";
+  
+  Intersection(a,b,n);
+  cout << "\n \n";
+  
+  Compliment(a, b, n);
+  return 0;
+}
